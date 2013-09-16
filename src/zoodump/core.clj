@@ -54,9 +54,12 @@
         client  (doto (CuratorFrameworkFactory/newClient url retry-policy)
                   (.start))
         transaction (atom (.inTransaction client))]
-    (reset! transaction (.and (create-node @transaction base (.getBytes "" "UTF-8"))))
-    (write-map transaction base data)
-    (.commit @transaction)))
+    (if-not (.. client (checkExists) (forPath base))
+      (do
+        (reset! transaction (.and (create-node @transaction base (.getBytes "" "UTF-8"))))
+        (write-map transaction base data)
+        (.commit @transaction))
+      (println "Base node already exists, won't overwrite"))))
 
 (defn -main
   "I don't do a whole lot ... yet."
