@@ -18,10 +18,10 @@ Clone the repository and build with lein uberjar
 
 Very simple.. sample usage:
 
-    $ java -jar zoodump-0.1.0-standalone.jar --config localhost:2181 --action import --file data.edn --base /apoya
+    $ java -jar zoodump-0.1.0-standalone.jar --url localhost:2181 --action import --file data.edn --base /apoya
 
 For exporting: 
 
-    $ java -jar zoodump-0.1.0-standalone.jar --config localhost:2181 --action export --file data.edn --base /apoya
+    $ java -jar zoodump-0.1.0-standalone.jar --url localhost:2181 --action export --file data.edn --base /apoya
 
 :)
