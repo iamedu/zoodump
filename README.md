@@ -1,36 +1,27 @@
 # zoodump
 
-FIXME: description
+Zoodump is a command line application for uploading and downloading
+data from zookeeper in a very simple way.
+
+IF HANDLES DATA IN A VERY SPECIFIC FORMAT, SO IT IS NOT SUITABLE FOR EVERYONE.
+
+In particular it ignores information inside entries that have kids, effectively
+treating them as directories.
+
+Data is downloaded an uploaded as edn.
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Clone the repository and build with lein uberjar
 
 ## Usage
 
-FIXME: explanation
+Very simple.. sample usage:
 
-    $ java -jar zoodump-0.1.0-standalone.jar [args]
+    $ java -jar zoodump-0.1.0-standalone.jar --config localhost:2181 --action import --file data.edn --base /apoya
 
-## Options
+For exporting: 
 
-FIXME: listing of options this app accepts.
+    $ java -jar zoodump-0.1.0-standalone.jar --config localhost:2181 --action export --file data.edn --base /apoya
 
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+:)
